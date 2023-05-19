@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/0.7.1/aframe.min.js"></script>
+    <script src="./JavaS/fisicas.js"></script>
+  </head>
+  <body>
+    <!--camara y cursor-->
+    <a-scene id="myScene">
+      <a-camera id="myCamera" position="0.38 1 17.15" llook-controls="" wasd-controls="acceleration:67.93;wsAxis:y;wsEnabled:false" >
+
+        <a-cursor color="white" intersection-spawn="event: click; mixin: voxel"></a-cursor>
+        <a-entity gltf-model="/npc/ray_gun.glb" modify-materials="" position="0.3  -1 -1" rotation="0.516 -87.376 -1.261"></a-entity> 
+        <a-text id="score" value="Puntaje:" scale=".3 .3 .3" position=".4 .7 -1"></a-text>
+        <a-text id="ammo" position="-.8 .7 -1" scale=".3 .3 .3" value="Balas: 15" color="white"></a-text>
+        <a-text id="text" color="white" scale=".3 .3 .3" position=".7 .7 -1" value="0" ></a-text>
+        <a-text id="game-over-text" color="white" scale=".7 .7 .7" position=".1 .1 .1" value="0" ></a-text>
+
+
+            </a-camera>
+      
+            <a-camera id="mira" camera="active:false" rotation="0.904 3.027 12.769" position="0.700 1.1 15.437" scale="0.071 1 3.71"></a-camera>
+ <!--  <a-assets>
+       <a-asset-item id="cityModel" src="../TITLE.glb"></a-asset-item>
+      </a-assets> -->
+
+      <a-entity cursor position="0 0 -5"></a-entity>
+
+
+ 
+ 
+      <a-sound src="./musica/sound1.mp3" loop="true" on="playmusic" autoplay="true" ></a-sound>
+
+      <a-entity gltf-model="#cityModel" modify-materials></a-entity>
+      <!--Nave-->
+      <a-entity gltf-model="/npc/nave.glb" modify-materials="" position="-11.17 0 13.857"> </a-entity>
+      
+      
+
+      
+      <!--Enemigos-->
+      <a-entity gltf-model="/npc/MONSTER 2.glb" modify-materials="" static-body  class="target"  position="-5 5.520 12.193">
+ <!--Animaciones-->
+      <a-animation 
+      attribute="position" 
+      dur="6000" 
+      to="-7 5.520 12.193" 
+      from="-5 5.520 12.193"
+      repeat="indefinitive"
+      direction="alternate"> 
+      </a-animation>
+        
+      </a-entity> 
+      
+      <a-entity gltf-model="/npc/MONSTER 2.glb" modify-materials="" static-body class="target"position="-0.953 5.520 12.193">
+         <!--Animaciones-->
+        <a-animation 
+        attribute="position" 
+        dur="6000" 
+        to="-3.345 5.520 12.193" 
+        from="-0.953 5.520 12.193"
+        repeat="indefinitive"
+        direction="alternate"> 
+        </a-animation>
+          
+      </a-entity>
+
+      <a-entity gltf-model="/npc/MONSTER 2.glb" modify-materials="" static-body class="target"position="1.836 5.520 12.193">
+         <!--Animaciones-->
+        <a-animation 
+        attribute="position" 
+        dur="6000" 
+        to="0.000 5.520 12.193" 
+        from="1.836 5.520 12.193"
+        repeat="indefinitive"
+        direction="alternate"> 
+        </a-animation>
+      
+      
+      </a-entity>
+
+
+      <a-entity gltf-model="/npc/MONSTER 2.glb" modify-materials="" static-body class="target"position="4.803 5.520 12.193">
+ <!--Animaciones-->
+        <a-animation 
+        attribute="position" 
+        dur="6000" 
+        to="3.189 5.520 12.193" 
+        from="4.803 5.520 12.193"
+        repeat="indefinitive"
+        direction="alternate"> 
+        </a-animation>
+      
+      
+      
+      </a-entity>
+      
+      <a-entity gltf-model="/npc/enemigo1.glb" modify-materials="" static-body class="target" position="-1.159 2.578 2.072" rotation="0 89.21 0" scale="-0.309 0.191 -0.189">
+        <!--Animaciones-->
+        <a-animation 
+        attribute="position" 
+        dur="6000" 
+        to="-1.794 2.584 2.093" 
+        from="-0.159 2.578 2.072"
+        repeat="indefinitive"
+        direction="alternate"> 
+        </a-animation>
+
+
+      </a-entity>
+      
+      
+      <a-entity gltf-model="/npc/enemigo1.glb" modify-materials="" static-body class="target" position="3.783 2.610 2.390" rotation="0 89.21 0" scale="-0.309 0.191 -0.189">
+         <!--Animaciones-->
+        <a-animation 
+        attribute="position" 
+        dur="6000" 
+        to="2.783 2.610 2.390" 
+        from="3.783 2.610 2.390"
+        repeat="indefinitive"
+        direction="alternate"> 
+        </a-animation>
+
+
+      </a-entity>
+
+      
+  
+
+      </a-entity>
+    
+      <!--Terreno-->
+      <a-entity gltf-model="/npc/terreno.glb" modify-materials=""  position="0.043 -2.35 7.245">
+
+
+      </a-entity>
+
+<!--sky-->
+      <a-sky src="/npc/sky.jpeg"></a-sky>
+         
+      <a-entity position="1 5 20.347" light="intensity:1.9000"></a-entity>
+      
+      <a-entity light="intensity:0.6;castShadow:true" position="3.659 2.819 0.078" data-aframe-default-light="" aframe-injected="" scale="3.169 2.37 2.198"></a-entity>
+    
+    </a-scene>
+  </body>
+   <!--DLC-->
+   <script src="./JavaS/shoot.js"></script>
+   <script src="./JavaS/java.js"></script>
+    <script src="./JavaS/controlOculus.js"></script>
+</html>
+
+
+
+      <!--©Copyright Paco, Kris, Zab -->
